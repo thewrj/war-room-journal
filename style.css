@@ -146,3 +146,9 @@ ol.lessons li::before{content:counter(l);font:700 22px var(--serif);color:var(--
 .gate{max-width:680px;margin:40px auto;text-align:center;font-family:var(--sans)}.gate h1{font:700 34px var(--serif)}.gate p{font-size:17px;color:var(--ink-2)}
 .series-grid .st.next{color:var(--ink)}
 .front img.cov{border:1px solid #ccc;box-shadow:0 10px 28px rgba(0,0,0,.12)}
+
+.pager .count { display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; }
+.pager .dots { display:flex; gap:6px; }
+.pager .dots a { width:30px; height:30px; border:1px solid var(--line); border-radius:50%; display:grid; place-items:center; font:700 12px var(--sans); text-decoration:none; color:var(--ink); }
+.pager .dots a[aria-current="page"] { background:var(--ink); color:#fff; border-color:var(--ink); }
+.toc a[aria-current="page"] { color: var(--mute); }
