@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The War Room Journal</title><meta name="description" content="Grenada&#x27;s 2026 general election, one constituency at a time. A new volume every Thursday at 7 pm."><meta property="og:title" content="The War Room Journal"><meta property="og:description" content="Grenada&#x27;s 2026 general election, one constituency at a time. A new volume every Thursday at 7 pm.">
+<meta property="og:image" content="cover-vol01.jpg"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="style.css"></head><body><div class="wrap">
+<div class="util"><span>Grenada edition</span><span>Analysis by Greg Hosten</span></div>
+<div class="mast"><span>THE</span>WAR ROOM JOURNAL</div>
+<div class="rule"><nav><a href="index.html">Home</a><a href="index.html#all">All volumes</a><a href="about.html">About</a></nav><span>The Constituency Series · New volume every Thursday, 7 pm</span></div>
+<section class="hero" id="hero"></section><div id="next"></div>
+<h2 class="sec" id="all">All volumes</h2><div class="grid" id="grid"></div>
+<script src="volumes.js"></script><script>
+const now=new Date(); const live=VOLUMES.filter(v=>new Date(v.release)<=now); const up=VOLUMES.filter(v=>new Date(v.release)>now);
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const L=live[live.length-1]; const url=location.href.split('#')[0];
+const share=v=>{const t=encodeURIComponent(`War Room Journal Vol. ${v.n}: ${v.hed}`), u=encodeURIComponent(new URL(v.pdf,url).href);return `<a class="btn" href="https://wa.me/?text=${t}%20${u}">Share on WhatsApp</a><a class="btn" href="https://twitter.com/intent/tweet?text=${t}&url=${u}">Share on X</a><a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=${u}">Facebook</a>`};
+document.getElementById('hero').innerHTML=`<div><div class="kick">Latest · Vol. ${L.n} · ${esc(L.seat)}</div><h1>${esc(L.hed)}</h1><p class="dek">${esc(L.dek)}</p><div class="meta">${esc(L.date)} · By Greg Hosten</div><a class="btn p" href="${L.pdf}">Read Vol. ${L.n} (PDF)</a><a class="btn" href="${L.pdf}" download>Download</a><br>${share(L)}</div><a href="${L.pdf}"><img src="${L.cover}" alt="Page 1 of Vol. ${L.n}"></a>`;
+if(up.length){const n=up[0];const d=new Date(n.release);document.getElementById('next').innerHTML=`<div class="next">Coming next: <b>Vol. ${n.n}, ${esc(n.seat)}</b> · ${d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',timeZone:'America/Grenada'})} at 7 pm</div>`}
+document.getElementById('grid').innerHTML=live.slice().reverse().map(v=>`<a class="card" href="${v.pdf}"><img src="${v.cover}" alt=""><div><b>Vol. ${v.n} · ${esc(v.seat)}</b><h3>${esc(v.hed)}</h3><small>${esc(v.date)}</small></div></a>`).join('');
+</script><footer>The War Room Journal · Election analysis by Greg Hosten · Grenada. 2026 figures are provisional results from the Parliamentary Elections Office. Written in the style of a newspaper report; not a publication of any news organisation.</footer></div></body></html>
