@@ -152,3 +152,9 @@ ol.lessons li::before{content:counter(l);font:700 22px var(--serif);color:var(--
 .pager .dots a { width:30px; height:30px; border:1px solid var(--line); border-radius:50%; display:grid; place-items:center; font:700 12px var(--sans); text-decoration:none; color:var(--ink); }
 .pager .dots a[aria-current="page"] { background:var(--ink); color:#fff; border-color:var(--ink); }
 .toc a[aria-current="page"] { color: var(--mute); }
+
+.series-grid .vb{display:flex;flex-direction:column;gap:3px}
+.series-grid .vh{font:italic 400 14px/1.35 var(--serif);color:var(--ink)}
+.series-grid .soon .vh{color:var(--mute)}
+
+.series-grid .vc{font:600 11px/1.4 var(--sans);letter-spacing:.02em;color:var(--mute);margin-top:2px}
