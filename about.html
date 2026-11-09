@@ -1,10 +1,28 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>About · The War Room Journal</title><meta name="description" content="Why the War Room Journal"><meta property="og:title" content="About · The War Room Journal"><meta property="og:description" content="Why the War Room Journal">
-<meta property="og:image" content="cover-vol01.jpg"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="style.css"></head><body><div class="wrap">
-<div class="util"><span>Grenada edition</span><span>Analysis by Greg Hosten</span></div>
-<div class="mast"><span>THE</span>WAR ROOM JOURNAL</div>
-<div class="rule"><nav><a href="index.html">Home</a><a href="index.html#all">All volumes</a><a href="about.html">About</a></nav><span>The Constituency Series · New volume every Thursday, 7 pm</span></div><div class="about"><h2 class="sec">Why "The War Room Journal"?</h2>
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About | The War Room Journal</title><meta name="description" content="About The War Room Journal">
+<meta property="og:title" content="About"><meta property="og:description" content="About The War Room Journal"><meta property="og:image" content="cover-vol01.jpg"><meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="style.css"></head><body>
+<div class="utility"><div class="in"><span class="edition"><b>Grenada Edition</b> · The Constituency Series</span><span>Analysis by Greg Hosten</span></div></div>
+<header class="masthead"><a href="index.html"><p class="name"><span class="the">THE</span>WAR ROOM JOURNAL</p></a><div class="tag">Election analysis, one constituency at a time</div></header><nav class="sections" aria-label="Sections"><ul><li><a href="index.html">Home</a></li><li><a href="LATEST" data-latest>Latest</a></li><li><a href="vol16.html">The Verdict</a></li><li><a href="index.html#series">The Series</a></li><li><a href="about.html" aria-current="page">About</a></li></ul></nav><main class="page"><article class="article about">
+<h1 class="hed">Why "The War Room Journal"?</h1>
 <p>Every campaign has a war room, the place where strategists set aside the speeches and study what actually happened, polling division by polling division. What they learn there stays private. This journal opens that room up.</p>
 <p>Each week it takes one of Grenada's 15 constituencies and asks the questions a war room would ask: who won, by how much, what moved the vote, and what it means for next time. Sixteen volumes, from the Town of St. George to Carriacou and Petite Martinique, ending with a national verdict.</p>
 <p><b>The analysis campaigns do behind closed doors, done in public, one constituency at a time.</b></p>
-<p>Analysis by Greg Hosten. Figures from the Parliamentary Elections Office (2026, provisional) and published results for earlier elections. Each volume lists its sources.</p></div><footer>The War Room Journal · Election analysis by Greg Hosten · Grenada. 2026 figures are provisional results from the Parliamentary Elections Office. Written in the style of a newspaper report; not a publication of any news organisation.</footer></div></body></html>
+<div class="bio"><span class="avatar lg">GH<img src="greg-hosten.jpg" alt="Greg Hosten"></span><p><b>Greg Hosten</b> writes The War Room Journal. Figures come from the Parliamentary Elections Office (2026, provisional) and published results for earlier elections; each volume lists its sources.</p></div>
+</article></main><footer class="site"><div class="in">
+<div><div class="brand">The War Room Journal</div><div>Election analysis by Greg Hosten · Grenada</div></div>
+<nav><a href="index.html">Home</a><a href="index.html#series">The Series</a><a href="about.html">About</a></nav>
+<div class="fine">2026 figures are provisional results from the Parliamentary Elections Office. Each volume lists its sources. Written in the style of a newspaper; not a publication of any news organisation.</div>
+</div></footer>
+<script src="volumes.js"></script>
+<script>
+(function(){var now=new Date();var live=VOLUMES.filter(function(v){return new Date(v.release)<=now});var L=live[live.length-1];
+document.querySelectorAll('[data-latest]').forEach(function(a){a.href=L.page;a.textContent='Latest: Vol. '+L.n});
+document.querySelectorAll('[data-vol]').forEach(function(el){var v=VOLUMES[+el.dataset.vol-1];if(new Date(v.release)>now){var d=new Date(v.release);
+el.innerHTML='<div class="gate"><p class="crumbs" style="justify-content:center"><span>The War Room Journal · Vol. '+v.n+'</span></p><h1>'+v.seat+'</h1><p>This volume will be published on <b>'+d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric',timeZone:'America/Grenada'})+' at 7 pm</b>.</p><p><a href="'+L.page+'" style="color:var(--link);font-weight:700">Read the latest volume: '+L.hed+'</a></p></div>';}});
+document.querySelectorAll('.avatar img').forEach(function(i){i.addEventListener('error',function(){i.remove()});if(i.complete&&!i.naturalWidth)i.remove()});
+var u=encodeURIComponent(location.href);document.querySelectorAll('.share .wa').forEach(function(a){a.href+=u});document.querySelectorAll('.share .x').forEach(function(a){a.href+='&url='+u});document.querySelectorAll('.share .fb').forEach(function(a){a.href+=u});
+document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){navigator.clipboard&&navigator.clipboard.writeText(location.href).then(function(){b.textContent='Link copied';setTimeout(function(){b.textContent='Copy link'},1800)})})});
+if(window.afterLoad)afterLoad(live,now);})();
+</script></body></html>

@@ -1,17 +1,30 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The War Room Journal</title><meta name="description" content="Grenada&#x27;s 2026 general election, one constituency at a time. A new volume every Thursday at 7 pm."><meta property="og:title" content="The War Room Journal"><meta property="og:description" content="Grenada&#x27;s 2026 general election, one constituency at a time. A new volume every Thursday at 7 pm.">
-<meta property="og:image" content="cover-vol01.jpg"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="style.css"></head><body><div class="wrap">
-<div class="util"><span>Grenada edition</span><span>Analysis by Greg Hosten</span></div>
-<div class="mast"><span>THE</span>WAR ROOM JOURNAL</div>
-<div class="rule"><nav><a href="index.html">Home</a><a href="index.html#all">All volumes</a><a href="about.html">About</a></nav><span>The Constituency Series · New volume every Thursday, 7 pm</span></div>
-<section class="hero" id="hero"></section><div id="next"></div>
-<h2 class="sec" id="all">All volumes</h2><div class="grid" id="grid"></div>
-<script src="volumes.js"></script><script>
-const now=new Date(); const live=VOLUMES.filter(v=>new Date(v.release)<=now); const up=VOLUMES.filter(v=>new Date(v.release)>now);
-const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const L=live[live.length-1]; const url=location.href.split('#')[0];
-const share=v=>{const t=encodeURIComponent(`War Room Journal Vol. ${v.n}: ${v.hed}`), u=encodeURIComponent(new URL(v.pdf,url).href);return `<a class="btn" href="https://wa.me/?text=${t}%20${u}">Share on WhatsApp</a><a class="btn" href="https://twitter.com/intent/tweet?text=${t}&url=${u}">Share on X</a><a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=${u}">Facebook</a>`};
-document.getElementById('hero').innerHTML=`<div><div class="kick">Latest · Vol. ${L.n} · ${esc(L.seat)}</div><h1>${esc(L.hed)}</h1><p class="dek">${esc(L.dek)}</p><div class="meta">${esc(L.date)} · By Greg Hosten</div><a class="btn p" href="${L.pdf}">Read Vol. ${L.n} (PDF)</a><a class="btn" href="${L.pdf}" download>Download</a><br>${share(L)}</div><a href="${L.pdf}"><img src="${L.cover}" alt="Page 1 of Vol. ${L.n}"></a>`;
-if(up.length){const n=up[0];const d=new Date(n.release);document.getElementById('next').innerHTML=`<div class="next">Coming next: <b>Vol. ${n.n}, ${esc(n.seat)}</b> · ${d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',timeZone:'America/Grenada'})} at 7 pm</div>`}
-document.getElementById('grid').innerHTML=live.slice().reverse().map(v=>`<a class="card" href="${v.pdf}"><img src="${v.cover}" alt=""><div><b>Vol. ${v.n} · ${esc(v.seat)}</b><h3>${esc(v.hed)}</h3><small>${esc(v.date)}</small></div></a>`).join('');
-</script><footer>The War Room Journal · Election analysis by Greg Hosten · Grenada. 2026 figures are provisional results from the Parliamentary Elections Office. Written in the style of a newspaper report; not a publication of any news organisation.</footer></div></body></html>
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Election analysis, one constituency at a time | The War Room Journal</title><meta name="description" content="The War Room Journal: Grenada&#x27;s 2026 general election, one constituency at a time, by Greg Hosten. A new volume every Thursday at 7 pm.">
+<meta property="og:title" content="Election analysis, one constituency at a time"><meta property="og:description" content="The War Room Journal: Grenada&#x27;s 2026 general election, one constituency at a time, by Greg Hosten. A new volume every Thursday at 7 pm."><meta property="og:image" content="cover-vol01.jpg"><meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="style.css"></head><body>
+<div class="utility"><div class="in"><span class="edition"><b>Grenada Edition</b> · The Constituency Series</span><span>Analysis by Greg Hosten</span></div></div>
+<header class="masthead"><a href="index.html"><p class="name"><span class="the">THE</span>WAR ROOM JOURNAL</p></a><div class="tag">Election analysis, one constituency at a time</div></header><nav class="sections" aria-label="Sections"><ul><li><a href="index.html" aria-current="page">Home</a></li><li><a href="LATEST" data-latest>Latest</a></li><li><a href="vol16.html">The Verdict</a></li><li><a href="index.html#series">The Series</a></li><li><a href="about.html">About</a></li></ul></nav>
+<main class="page"><section class="front" id="front"></section>
+<section id="series"><h3 class="series-head"><span>The constituency series</span><span style="font-weight:400;color:var(--mute)">A new volume every Thursday, 7 pm</span></h3><div class="series-grid" id="sg"></div></section></main>
+<script>window.afterLoad=function(live,now){var L=live[live.length-1];var up=VOLUMES.filter(function(v){return new Date(v.release)>now});
+function esc(s){return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+var nx=up.length?'<p class="meta" style="margin-top:16px;background:#111;color:#fff;padding:12px 14px;font:14px var(--sans)">Coming next: <b style="color:#f2b705">Vol. '+up[0].n+', '+esc(up[0].seat)+'</b> · '+new Date(up[0].release).toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',timeZone:'America/Grenada'})+' at 7 pm</p>':'<p class="meta" style="margin-top:16px">The series is complete: all 16 volumes are published.</p>';
+document.getElementById('front').innerHTML='<div><div class="kicker">Latest · Vol. '+L.n+' · '+esc(L.seat)+'</div><h2><a href="'+L.page+'">'+esc(L.hed)+'</a></h2><p class="summary">'+esc(L.dek)+'</p><div class="author" style="margin-top:14px"><span class="avatar">GH<img src="greg-hosten.jpg" alt="Greg Hosten" onerror="this.remove()"></span><div class="meta">By <b style="color:#111">Greg Hosten</b> · '+esc(L.date)+'</div></div><p style="margin-top:18px"><a href="'+L.page+'" style="display:inline-block;background:#111;color:#fff;font:700 14px var(--sans);padding:12px 18px;text-decoration:none">Read Vol. '+L.n+'</a> <a href="'+L.pdf+'" style="font:700 14px var(--sans);color:var(--link);margin-left:10px">Download the PDF</a></p>'+nx+'</div><div><a href="'+L.page+'"><img class="cov" src="'+L.cover+'" alt="Page 1 of Vol. '+L.n+'"></a></div>';
+document.getElementById('sg').innerHTML=VOLUMES.map(function(v){var on=new Date(v.release)<=now;var t='Vol. '+v.n+' · '+esc(v.n==16?'The Verdict':v.seat);
+return on?'<a href="'+v.page+'"><span>'+t+'</span><span class="st">Read now</span></a>':'<div class="soon"><span>'+t+'</span><span class="st">'+new Date(v.release).toLocaleDateString('en-GB',{day:'numeric',month:'short',timeZone:'America/Grenada'})+'</span></div>'}).join('');};</script><footer class="site"><div class="in">
+<div><div class="brand">The War Room Journal</div><div>Election analysis by Greg Hosten · Grenada</div></div>
+<nav><a href="index.html">Home</a><a href="index.html#series">The Series</a><a href="about.html">About</a></nav>
+<div class="fine">2026 figures are provisional results from the Parliamentary Elections Office. Each volume lists its sources. Written in the style of a newspaper; not a publication of any news organisation.</div>
+</div></footer>
+<script src="volumes.js"></script>
+<script>
+(function(){var now=new Date();var live=VOLUMES.filter(function(v){return new Date(v.release)<=now});var L=live[live.length-1];
+document.querySelectorAll('[data-latest]').forEach(function(a){a.href=L.page;a.textContent='Latest: Vol. '+L.n});
+document.querySelectorAll('[data-vol]').forEach(function(el){var v=VOLUMES[+el.dataset.vol-1];if(new Date(v.release)>now){var d=new Date(v.release);
+el.innerHTML='<div class="gate"><p class="crumbs" style="justify-content:center"><span>The War Room Journal · Vol. '+v.n+'</span></p><h1>'+v.seat+'</h1><p>This volume will be published on <b>'+d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric',timeZone:'America/Grenada'})+' at 7 pm</b>.</p><p><a href="'+L.page+'" style="color:var(--link);font-weight:700">Read the latest volume: '+L.hed+'</a></p></div>';}});
+document.querySelectorAll('.avatar img').forEach(function(i){i.addEventListener('error',function(){i.remove()});if(i.complete&&!i.naturalWidth)i.remove()});
+var u=encodeURIComponent(location.href);document.querySelectorAll('.share .wa').forEach(function(a){a.href+=u});document.querySelectorAll('.share .x').forEach(function(a){a.href+='&url='+u});document.querySelectorAll('.share .fb').forEach(function(a){a.href+=u});
+document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){navigator.clipboard&&navigator.clipboard.writeText(location.href).then(function(){b.textContent='Link copied';setTimeout(function(){b.textContent='Copy link'},1800)})})});
+if(window.afterLoad)afterLoad(live,now);})();
+</script></body></html>
